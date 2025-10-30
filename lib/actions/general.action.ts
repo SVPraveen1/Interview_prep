@@ -41,7 +41,7 @@ export async function getInterviewById(id: string): Promise<Interview | null> {
 
     return interview.data() as Interview | null;
 }
-
+    
 export async function createFeedback(params: CreateFeedbackParams) {
     const { interviewId, userId, transcript } = params;
     try {
