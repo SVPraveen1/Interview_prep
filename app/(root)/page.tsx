@@ -41,32 +41,50 @@ const page = async () => {``
           className="max-sm:hidden"
         />
       </section>
+
       <section className="flex flex-col gap-6 mt-8">
         <h2>Your Interviews</h2>
         <div className="interviews-section">
           {hasPastInterviews ? (
             userInterviews?.map((interview) => (
-              <InterviewCard {...interview} key={interview.id} />
+              <InterviewCard 
+                key={interview.id}
+                userId={user?.id}
+                id={interview.id}
+                role={interview.role}
+                type={interview.type}
+                techstack={interview.techstack}
+                createdAt={interview.createdAt}
+              />
             ))
           ) : (
-            <p>No past interviews found. Start your first interview!</p>
+            <p>You haven&apos;t taken any interview yet, Start your first interview!</p>
           )}
         </div>
       </section>
+
       <section className="flex flex-col gap-6 mt-8">
         <h2>Take an interview</h2>
         <div className="interviews-section">
           {hasUpcomingInterviews ? (
             latestInterviews?.map((interview) => (
-              <InterviewCard {...interview} key={interview.id} />
+              <InterviewCard 
+                key={interview.id}
+                userId={user?.id}
+                id={interview.id}
+                role={interview.role}
+                type={interview.type}
+                techstack={interview.techstack}
+                createdAt={interview.createdAt}
+              />
             ))
           ) : (
-            <p>There are no new interviews available</p>
+            <p>There are no  interviews available</p>
           )}
         </div>
       </section>
     </>
   );
-};
+}
 
 export default page;
