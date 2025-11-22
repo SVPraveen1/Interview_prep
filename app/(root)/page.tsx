@@ -14,8 +14,8 @@ const page = async () => {``
 
   //Parallelization
   const [userInterviews, latestInterviews] = await Promise.all([
-    await getInterviewsByUserId(user?.id!),
-    await getLatestByUserId({ userId: user?.id! }),
+    await getInterviewsByUserId(user?.id || ""),
+    await getLatestByUserId({ userId: user?.id || "" }),
   ]);
 
   const hasPastInterviews = userInterviews?.length! > 0;
@@ -47,7 +47,7 @@ const page = async () => {``
         <div className="interviews-section">
           {hasPastInterviews ? (
             userInterviews?.map((interview) => (
-              <InterviewCard 
+              <InterviewCard
                 key={interview.id}
                 userId={user?.id}
                 id={interview.id}
@@ -58,7 +58,10 @@ const page = async () => {``
               />
             ))
           ) : (
-            <p>You haven&apos;t taken any interview yet, Start your first interview!</p>
+            <p>
+              You haven&apos;t taken any interview yet, Start your first
+              interview!
+            </p>
           )}
         </div>
       </section>
@@ -68,7 +71,7 @@ const page = async () => {``
         <div className="interviews-section">
           {hasUpcomingInterviews ? (
             latestInterviews?.map((interview) => (
-              <InterviewCard 
+              <InterviewCard
                 key={interview.id}
                 userId={user?.id}
                 id={interview.id}
@@ -79,12 +82,12 @@ const page = async () => {``
               />
             ))
           ) : (
-            <p>There are no  interviews available</p>
+            <p>There are no interviews available</p>
           )}
         </div>
       </section>
     </>
   );
-}
+};
 
 export default page;

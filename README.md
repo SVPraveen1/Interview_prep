@@ -1,4 +1,4 @@
-    # Interview Prep - AI-Powered Mock Interview Platform
+c    # Interview Prep - AI-Powered Mock Interview Platform
 
 A modern web application that helps users practice and improve their interview skills through AI-powered mock interviews with real-time voice interaction and detailed feedback analysis.
 
